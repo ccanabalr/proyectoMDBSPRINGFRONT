@@ -1,0 +1,29 @@
+<h1>Listado de Personas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Fecha de Nacimiento</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas">
+      <th scope="row">{{persona.nombre}}</th>
+      <td>{{persona.apellido}}</td>
+      <td>{{persona.fechaNacimiento | date:"EEEE dd, MMMM yyyy"}}</td>
+      <td>{{persona.correo}}</td>
+      <td>{{persona.direccion}}</td>
+      <td>
+          <button type="button" name="button" [routerLink]="['/form', persona.id]" class="btn btn-primary btn-sm">Editar</button>
+      </td>
+      <td>
+          <button type="button" name="button" (click)="delete(persona)" class="btn btn-danger btn-sm">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
